@@ -12,7 +12,7 @@ async def python(massage: types.Message):
         user_name = massage.from_user.first_name
     if massage.from_user.username is not users:
         users[f'@{user_name}'] = massage.from_user.id
-        print(users                 )
+        print(users)
 
     else:
         pass
@@ -30,4 +30,3 @@ async def ban(message: types.Message):
 
 def reg_ban(db: Dispatcher):
     db.register_message_handler(ban, commands=['ban'], commands_prefix=['!'])
-
