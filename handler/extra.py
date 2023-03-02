@@ -14,7 +14,7 @@ async def echo(massage: types.Message):
     if massage.text == "он вышел сам!":
         await bot.pin_chat_message(massage.chat.id, massage.message_id)
     if massage.text == 'python':
-        await bot.send_dice(massage.chat.id)
+        await bot.send_dice(massage.chat.id, emoji='🎯')
 
 
 def reg_hand_extra(db:Dispatcher):

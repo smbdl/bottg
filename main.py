@@ -1,8 +1,9 @@
 from aiogram.utils import executor
 import logging
 from config import db
-from handler import client, callback, admin, extra
+from handler import client, callback, admin, extra, fsm_anketa
 
+fsm_anketa.reg_hand_anketa(db)
 client.reg_client(db)
 callback.reg_hand_callback(db)
 admin.reg_ban(db)

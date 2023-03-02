@@ -1,11 +1,13 @@
 from aiogram import types, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import bot, db
+from keyboard.client_kb import start_markup
 
 
-@db.message_handler(commands=['hello'])
+@db.message_handler(commands=['start', 'hello'])
 async def start_handler(massage: types.Message):
-    await bot.send_message(massage.chat.id, f'hi, @{massage.from_user.username}')
+    await bot.send_message(massage.chat.id, f'hi, @{massage.from_user.username}',
+                           reply_markup=start_markup)
     await massage.reply('пока что всё')
 
 
@@ -40,10 +42,10 @@ async def quiz1(call: types.CallbackQuery):
 
 
 async def info_hand(massage: types.Message):
-    await massage.answer('новая функция')
+    await massage.answer('I am Gosha :)')
 
 
 def reg_client(db: Dispatcher):
-    db.register_message_handler(start_handler, commands=['hello'])
+    db.register_message_handler(start_handler, commands=['start', 'hello'])
     db.register_message_handler(quiz1, commands=['quiz'])
     db.register_message_handler(info_hand, commands=['info'])
