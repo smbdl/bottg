@@ -4,11 +4,10 @@ from config import bot, db
 from keyboard.client_kb import start_markup
 
 
-@db.message_handler(commands=['start', 'hello'])
+@db.message_handler(commands=['start'])
 async def start_handler(massage: types.Message):
-    await bot.send_message(massage.chat.id, f'hi, @{massage.from_user.username}',
+    await bot.send_message(massage.chat.id, f"What's up, @{massage.from_user.username}",
                            reply_markup=start_markup)
-    await massage.reply('пока что всё')
 
 
 @db.message_handler(commands=['quiz'])
@@ -21,9 +20,8 @@ async def quiz1(call: types.CallbackQuery):
     answer = [
         'от верблюда',
         'ъуъ',
-        'шрек',
-        'мем? cемья важнее',
         'наелся и спит',
+        'мем? cемья важнее',
     ]
     photo = open('media/f0e1c3b4b532fbc70a73e022ffcf35f2_fitted_1332x0.jpg', 'rb')
     await bot.send_photo(call.from_user.id, photo=photo)
@@ -46,6 +44,6 @@ async def info_hand(massage: types.Message):
 
 
 def reg_client(db: Dispatcher):
-    db.register_message_handler(start_handler, commands=['start', 'hello'])
+    db.register_message_handler(start_handler, commands=['start'])
     db.register_message_handler(quiz1, commands=['quiz'])
     db.register_message_handler(info_hand, commands=['info'])

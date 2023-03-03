@@ -8,9 +8,8 @@ async def quiz2(call: types.CallbackQuery):
     answer = [
         'от верблюда',
         'ъуъ',
-        'шрек',
-        'мем? семья важнее',
         'наелся и спит',
+        'мем? cемья важнее'
     ]
     photo2 = open('media/u-suka-10.jpg', 'rb')
     await bot.send_photo(call.from_user.id, photo=photo2)

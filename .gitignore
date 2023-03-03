@@ -1,7 +1,7 @@
-.gitignore
 .idea
+.gitignore
+.env
 env
-pycache/
+__pycache__
 *.py[cod]
 *.so
-.env

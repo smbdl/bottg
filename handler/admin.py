@@ -30,3 +30,7 @@ async def ban(message: types.Message):
 
 def reg_ban(db: Dispatcher):
     db.register_message_handler(ban, commands=['ban'], commands_prefix=['!'])
+
+
+def reg_hand_python(db: Dispatcher):
+    db.register_message_handler(python)

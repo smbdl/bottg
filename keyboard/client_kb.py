@@ -1,9 +1,12 @@
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 start_markup = ReplyKeyboardMarkup(
-    resize_keyboard=True,  # размер
-    one_time_keyboard=True  # скрыть кнопки
-)
+    resize_keyboard=True,
+    one_time_keyboard=True)
+
+gender_markup = ReplyKeyboardMarkup(
+    resize_keyboard=True,
+    one_time_keyboard=True)
 
 start_button = KeyboardButton("/start")
 info_button = KeyboardButton("/info")
@@ -15,3 +18,4 @@ contact = KeyboardButton("contact", request_contact=True)
 user = KeyboardButton("user", request_user=None)
 
 start_markup.add(start_button, info_button, quiz_button, location, contact, user, reg_button)
+gender_markup.add(KeyboardButton("Мужской"), KeyboardButton("Женский"))
