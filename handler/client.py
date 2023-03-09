@@ -39,6 +39,7 @@ async def quiz1(call: types.CallbackQuery):
     )
 
 
+@db.message_handler(commands=['info'])
 async def info_hand(massage: types.Message):
     await massage.answer('I am Gosha :)')
 

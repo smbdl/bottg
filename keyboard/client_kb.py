@@ -4,9 +4,6 @@ start_markup = ReplyKeyboardMarkup(
     resize_keyboard=True,
     one_time_keyboard=True)
 
-gender_markup = ReplyKeyboardMarkup(
-    resize_keyboard=True,
-    one_time_keyboard=True)
 
 start_button = KeyboardButton("/start")
 info_button = KeyboardButton("/info")
@@ -18,4 +15,31 @@ contact = KeyboardButton("contact", request_contact=True)
 user = KeyboardButton("user", request_user=None)
 
 start_markup.add(start_button, info_button, quiz_button, location, contact, user, reg_button)
-gender_markup.add(KeyboardButton("Мужской"), KeyboardButton("Женский"))
+
+cancel = KeyboardButton('cancel')
+
+submit_markup = ReplyKeyboardMarkup(
+    resize_keyboard=True,
+    one_time_keyboard=True
+).add(
+    KeyboardButton('да'),
+    KeyboardButton('заново'),
+    cancel
+)
+
+gender_markup = ReplyKeyboardMarkup(
+    resize_keyboard=True,
+    one_time_keyboard=True
+).add(
+    KeyboardButton('мужчина'),
+    KeyboardButton('женчина'),
+    KeyboardButton('другое'),
+    cancel
+)
+
+cancel_markup = ReplyKeyboardMarkup(
+    resize_keyboard=True,
+    one_time_keyboard=True
+).add(
+    cancel
+)
